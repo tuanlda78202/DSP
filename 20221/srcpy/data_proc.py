@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 # Load training transactions data
 def load_training_data(file_name):
-    return pd.read_csv(file_name).drop(['Unnamed: 0', "type", "rent_zestimate", "zestimate", "broker_name", "full_bathrooms"], axis=1)
+    return pd.read_csv(file_name).drop(['Unnamed: 0', "type", "rent_zestimate", "zestimate", "broker_name", "full_bathrooms", "city", "lot_features", "architectural_style", "compensation"], axis=1)
 
 def del_dup(df):
     l = list(df.loc[:, ["lat", "long"]].duplicated())
@@ -36,8 +36,6 @@ def rename_columns(prop):
         "covered_spaces": "covered",
         "garage_spaces": "garage",
         "tax_assessed_value" : "tax_assessed",
-        "lot_features": "lot_f",
-        "architectural_style": "architectural",
         "year_built": "year",
         "sewer_info": "sewer",
         "water_info": "water",
